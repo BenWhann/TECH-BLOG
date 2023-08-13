@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const { Comment, Post, User } = require('../models');
 const withAuth = require('../utils/auth');
-const sequelize = require('../config/connections');
 
 router.get('/', async (req, res) => {
     try {
@@ -31,7 +30,31 @@ router.get('/', async (req, res) => {
     }
   });
 
-  router.get('/dashboard',  withAuth, async (req, res) => {
+  router.get('/post/:id', async (req, res) => {
+    try {
+      const postData = await Post.findByPk(req.params.id, {
+        include: [
+          {
+            model: User,
+            attributes: ['name'],
+          },
+        ],
+      });
+      
+      console.log(postData);
+
+      const post = postData.get({ plain: true });
+  
+      res.render('post', {
+        ...post,
+        logged_in: req.session.logged_in
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
+
+  router.get('/dashboard',  async (req, res) => {
     try {
       // Find the logged in user based on the session ID
       const userData = await User.findByPk(req.session.user_id, {
@@ -40,11 +63,13 @@ router.get('/', async (req, res) => {
       });
   
       const user = userData.get({ plain: true });
+
+      res.render('dashboard');
   
-      res.render('dashboard', {
-        ...user,
-        logged_in: true
-      });
+      // res.render('dashboard', {
+      //   ...user,
+      //   logged_in: true
+      // });
     } catch (err) {
       res.status(500).json(err);
     }
@@ -52,7 +77,7 @@ router.get('/', async (req, res) => {
 
   router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
-      res.redirect('/');
+      res.redirect('/dashboard');
       return;
     }
   
