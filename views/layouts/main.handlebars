@@ -13,6 +13,11 @@
   <div class="flex-column justify-space-around">
     <header class="text-center">
       <nav class="container nav">
+        {{#if logged_in}}
+        <a class="col-sm navbar top">
+        <script src="/js/logout.js"></script>
+        </a>
+        {{/if}}
         <a class="col-sm navbar top" href="/">Home Page</a> 
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
@@ -33,9 +38,9 @@
   </div>
 
   <!-- Render script for logged in users only -->
-  {{#if logged_in}}
+  {{!-- {{#if logged_in}}
   <script src="/js/logout.js"></script>
-  {{/if}}
+  {{/if}} --}}
 </body>
 
 </html>
