@@ -1,20 +1,17 @@
 <div class="text-center">
   <h2>{{title}}</h2>
   <p>{{body}}</p>
-  <p>Created by {{user.name}}</p>
+  <p>Post Author: {{user.name}}</p>
 
     {{#each comments as |comment|}}
     <div class="row mb-2">
       <div class="col-md-8">
         <h4><a href="/post/{{post.id}}">{{comment}}</a></h4>
       </div>
-      {{!-- <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{post.id}}">DELETE POST</button>
-      </div> --}}
     </div>
     {{/each}}
 
-    <h3>Leave a comment:</h3>
+    <h4>Leave a comment:</h4>
 
     <form class="form" id="new-comment-form">
       <div class="form-group">

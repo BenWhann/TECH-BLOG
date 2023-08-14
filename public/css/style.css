@@ -1,0 +1,50 @@
+.form-title {
+    text-align: center;
+}
+
+.form {
+    border: 1px solid;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(184, 184, 184);
+}
+
+.form-input {
+    border-radius: 5px;
+}
+
+.post {
+    border: 1px solid;
+    border-radius: 5px;
+}
+
+.title {
+    font-weight: 500;
+}
+
+.body {
+    border-left: 1px solid;
+    height: 100%;
+}
+
+.nav {
+    text-align: center;
+}
+
+.top {
+    border: 1px solid;
+    border-radius: 5px;
+    background-color: rgb(211, 211, 211);
+    font-size: 1rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.my-post {
+    border: 1px solid;
+    border-radius: 5px;
+    height: 100%;
+}
