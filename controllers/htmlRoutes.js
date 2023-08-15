@@ -21,7 +21,7 @@ router.get('/', async (req, res) => {
         logged_in: req.session.logged_in 
       });
 
-      console.log(posts);
+      // console.log(posts);
       
     } catch (err) {
       res.status(500).json(err);
@@ -35,12 +35,14 @@ router.get('/', async (req, res) => {
         ],
       });
       
-      console.log(postData);
+      // console.log(postData);
 
       const post = postData.get({ plain: true });
-  
+      // console.log("🚀 ~ file: htmlRoutes.js:41 ~ router.get ~ post:", post)
+      const comments = post.comments
+      // console.log("commetnsasdfasdfasdfadsf",comments)
       res.render('post', {
-        ...post,
+        post,comments,
         logged_in: req.session.logged_in
       });
     } catch (err) {
