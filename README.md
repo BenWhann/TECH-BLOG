@@ -12,6 +12,11 @@ Simply pull down the code and open it in your IDE of choice. From there, run the
 
 An example of how this application could be used is making posts about what you learned in your programming bootcamp.
 
+## Assets
+
+![image](https://github.com/BenWhann/TECH-BLOG/assets/129990965/3e47e954-bdc7-4fd0-b0b9-5296b91951fa)
+
+
 ## License
 
 MIT License
